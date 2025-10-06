@@ -28,6 +28,9 @@ public final class GetAverageGradeUseCase {
         String[] members = team.getMembers();
         for (String m : members) {
             Grade grade = gradeDataBase.getGrade(m, course);
+            if (grade == null) {
+                continue;
+            }
             sum += grade.getGrade();
             count++;
         }
